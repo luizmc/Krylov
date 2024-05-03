@@ -1,2 +1,3 @@
 # Krylov
-Several jupyter notebooks to study Krylov method
+
+A collection of  jupyter notebooks to study Krylov methods.
