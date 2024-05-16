@@ -1,0 +1,21 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore compiled files
+*.class
+*.o
+*.pyc
+
+# Ignore IDE files
+.vscode/
+.idea/
+Ritz.code-workspace
+
+# Ignore auxiliary latex files
+
+*.aux
+*.cb
+*.cb2
+*.*_latexmk
+*.fls 
+*.log
