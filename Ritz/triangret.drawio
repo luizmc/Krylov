@@ -1,0 +1,65 @@
+<mxfile host="65bd71144e">
+    <diagram id="HE8XRKM85nBaoRij0xHS" name="Page-1">
+        <mxGraphModel dx="1169" dy="612" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="1" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="11" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.orthogonal_triangle;fontSize=28;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="120" width="280" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.orthogonal_triangle;fontSize=28;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="180" width="210" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="endArrow=classic;startArrow=classic;html=1;fontSize=28;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;startFill=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="210" y="110" as="sourcePoint"/>
+                        <mxPoint x="490" y="350" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="$$x=A^{-1}y$$" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#5085CC;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="190" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;fontSize=28;strokeColor=none;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="310" y="310" as="sourcePoint"/>
+                        <mxPoint x="390" y="310" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#d79b00;fontSize=28;startArrow=classic;startFill=1;fillColor=#ffe6cc;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="290" y="210" as="sourcePoint"/>
+                        <mxPoint x="440" y="340" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="$$\theta x$$" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#FDB372;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="255" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#82b366;fontSize=28;fontColor=#FDB372;startArrow=classic;startFill=1;fillColor=#d5e8d4;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="280" y="350" as="sourcePoint"/>
+                        <mxPoint x="450" y="350" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="$$Ax=y$$" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#10912A;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="320" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=default;fontSize=20;fontColor=#10912A;startArrow=classic;startFill=1;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="200" y="380" as="sourcePoint"/>
+                        <mxPoint x="480" y="380" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" value="$$\theta^{-1}y$$" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="390" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="$$\frac{x}{\theta x}=\frac{\theta^{-1}y}{y}&lt;br&gt;$$" style="text;strokeColor=#b85450;align=center;fillColor=#f8cecc;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
+                    <mxGeometry x="255" y="60" width="130" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
