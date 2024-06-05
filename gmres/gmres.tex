@@ -1,5 +1,8 @@
 
-Há uma unanimidade entre os pesquisadores da área de métodos iterativos para solução de sistemas lineares: não existe o melhor método para a solução de problemas com matrizes não-simétricas~\cite{NachtigalReddyEtAl1992How}. Outro ponto de vista comum é o de que, para matrizes não-normais, há muito ainda o  que se trabalhar na compreensão dos fatores que influenciam na convergência dos mêtodos. Ainda outro consenso, é o da necessidade de precondicionadores para acelerar os métodos de projeção em subespaços de Krylov (MPSK). Na Seção \ref{arnol_sec_arnol}, o método de Arnoldi,  um dos procedimentos seminais dos MPSK ao lado do método de Lanczos, é discutido a partir de uma motivação para a sua construção e várias de suas propriedades são relacionadas. Nas demais seções, discutimos dois métodos paradigmáticos: o FOM e o GMRES. A literatura sobre esses métodos é vasta, estando consolidada, por exemplo, nos livros \cite{Brezinski2002Outils}, \cite{Greenbaum97Iterative}, \cite{Saad03Iterative},  \cite{Vorst03Iterative}.  Ao fim deste trabalho, tocamos levemente na questão de estabilidade do GMRES quando do uso  do procedimento de Arnoldi baseado no método de reflexões de Householder ou no método de ortogonalização de Gram-Schmidt modificado,  apresentando a bibliografia necessária ao estudo desse tema. 
+\chapter{Arnoldi, FOM e GMRES}
+\label{chap:gmes}
+
+Há uma unanimidade entre os pesquisadores da área de métodos iterativos para solução de sistemas lineares: não existe o melhor método para a solução de problemas com matrizes não-simétricas~\cite{NachtigalReddyEtAl1992How}. Outro ponto de vista comum é o de que, para matrizes não-normais, há muito ainda o  que se trabalhar na compreensão dos fatores que influenciam na convergência dos mêtodos. Ainda outro consenso, é o da necessidade de precondicionadores para acelerar os métodos de projeção em subespaços de Krylov (MPSK). Na Seção \ref{arnol_sec_arnol}, o método de Arnoldi,  um dos procedimentos seminais dos MPSK ao lado do método de Lanczos, é discutido a partir de uma motivação para a sua construção e várias de suas propriedades são relacionadas. Nas demais seções, discutimos dois métodos paradigmáticos: o FOM e o GMRES. A literatura sobre esses métodos é vasta, estando consolidada, por exemplo, nos livros \cite{Brezinski2002Outils}, \cite{Greenbaum97Iterative}, \cite{Meurant2020Krylov} \cite{Saad03Iterative},  \cite{Vorst03Iterative}.  Ao fim deste trabalho, tocamos levemente na questão de estabilidade do GMRES quando do uso  do procedimento de Arnoldi baseado no método de reflexões de Householder ou no método de ortogonalização de Gram-Schmidt modificado,  apresentando a bibliografia necessária ao estudo desse tema. 
 
 \section{Método de Arnoldi}\label{arnol_sec_arnol}
 O nome de Arnoldi\footnote{Walter Edwin Arnoldi (1917-1995) foi um engenheiro americano que publicou sua técnica em 1951, não muito distante do aparecimento do algoritmo de Lanczos. Arnoldi graduou-se em engenharia mecânica no Stevens Institute of Technology, Hoboken, New
@@ -127,7 +130,7 @@ Para resolver $Ax=b$, o método da \textbf{ortogonalização completa}~\cite{Saa
 
 \begin{figure}[htb]
   % Requires \usepackage{graphicx}
-  \epsfig{file=arnol_fom.eps, width=\linewidth}
+  \epsfig{file=Figures/arnol_fom.eps, width=\linewidth}
   \caption{Representação esquemática da condição de ortogonalidade do  resíduo do FOM.}\label{fig_kryakrybfom}
 \end{figure}
 
@@ -197,7 +200,7 @@ O método de \textbf{ resíduo minimal generalizado (GMRES)}~\cite{SaadSchultz86
 
 \begin{figure}[htb]
   % Requires \usepackage{graphicx}
-  \epsfig{file=arnol_gmres.eps, width=\linewidth}
+  \epsfig{file=Figures/arnol_gmres.eps, width=\linewidth}
   \caption{Representação esquemática da condição de ortogonalidade do  resíduo do GMRES.}\label{fig_kryakrybgmres}
 \end{figure}
 
@@ -273,11 +276,11 @@ O outro lado da moeda do teorema \ref{teo_gmresconverg} é que, na prática, ele
 
  A discussão  sobre as ferramentas matemáticas para caracterização da convergência do GMRES, e dos demais  métodos de Krylov para matrizes não-normais, é uma área de estudo importante e que contém vários problemas em aberto, ver por exemplo \cite{Embree1999How},  \cite{PaigeParlettEtAl95Approximate}, \cite{SimonciniSzyld2007Recent}, \cite{Zemke2003Krylov}.
 
- Um comentário necessáro  é sobre a estabilidade do método GMRES. Há dois resultados em \cite{PaigeRozloznikEtAl2006MODIFIED} e \cite{Rozloznik1997Numerical} onde são  caracterizadas a estabilidade em relação ao erro inverso das implementações do GMRES usando as reflexões de Householder e o método modificado de Gram-Schmidt no processo de Arnoldi. Esses resultados asseguram que pequenas modificações nos dados tratados não irão acarretar grandes problemas é solução do problema, uma vez que se estará  resolvendo exatamente um problema próximo. Ou seja a dificuldade será  intrínseca ao prôprio sistema que está sendo resolvido e não devida ao algoritmo utilizado. Trata-se de uma leitura  técnica e importante para os pesquisadores da área.
+ Um comentário necessáro  é sobre a estabilidade do método GMRES. Há dois resultados em \cite{PaigeRozloznikEtAl2006MODIFIED} e \cite{Rozloznik1997Numerical} onde são  caracterizadas a estabilidade em relação ao erro inverso das implementações do GMRES usando as reflexões de Householder e o método modificado de Gram-Schmidt no processo de Arnoldi. Esses resultados asseguram que pequenas modificações nos dados tratados não irão acarretar grandes problemas na solução do problema, uma vez que se estará  resolvendo exatamente um problema próximo. Ou seja a dificuldade será  intrínseca ao prôprio sistema que está sendo resolvido e não devida ao algoritmo utilizado. Trata-se de uma leitura  técnica e importante para os pesquisadores da área.
 
 
 
 A versão  utilizada na prática para o GMRES é a \textbf{com recomeço}. Com o avanço do número de iterações do GMRES, o armazenamento dos vetores necessáros e o tamanho dos problemas de quadrados mínimos a serem resolvidos começam a inviabilizar a aplicação do  método. Há várias alternativas: a escolha de um subconjunto reduzido dos vetores já  calculados  e o recomeço após de um número fixado de iterações (versões com recomeço). A versão  com recomeço padrão simplesmente testa a convergência depois de um número fixo de iterações  e, caso não se tenha atingido a cota desejada, mantêm-se apenas a  última  aproximação, descartando-se todos os demais vetores,  e usa-se esse aproximação como valor inicial para calcular um novo  resíduo inicial e  começar uma nova aplicação do GMRES\footnote{Cada ciclo completo de recomeço é denominado \textbf{ciclo} do GMRES.}, ver análises em \cite{Morgan95Restarted}, \cite{Simoncini00Convergence} e \cite{Trefethen1990Algorithms}. A vantagem dessa alternativa é que como cada iteração garante o não aumento da norma euclidiana do  resíduo, com o uso dessa solução, garante-se que estaremos partindo de um ponto, possivelmente melhor do que a primeira aproximação $x_0$. Apesar de  drástica, essa alternativa é das mais usadas na prática. A bem da verdade, a alternativa com recomeço é um método de Krylov apenas durante cada ciclo do GMRES, uma vez que a cada recomeço um novo subespaço de Krylov é construído, ou seja o método completo não fica dentro de um mesmo subespaço de Krylov que aumenta a cada ciclo completo.
 
-Há dezenas de variantes do  GMRES que foram desenvolvidas nos últimos 20 anos, ver por exemplo \cite{SaadVorst00Iterative}, \cite{SimonciniSzyld2007Recent}, \cite{Zou2023}.
+Há dezenas de variantes do  GMRES que foram desenvolvidas nos últimos 20 anos, ver por exemplo \cite{SaadVorst00Iterative,SimonciniSzyld2007Recent,Zou2023}.
 

@@ -1,3 +1,9 @@
+\chapter{Valores de Ritz e valores harmônicos de Ritz}
+\label{chap:Ritz}
+
+\section{Método de Rayleigh-Ritz}
+\label{sec:Ritz}
+
 Discutiremos aproximações para autovalores das matrizes que aparecem durante a aplicação dos métodos iterativos para a solução dos sistemas lineares. Há uma vasta literatura sobre o tema, por exemplo \cite{Beattie1998Harmonic,GoossensRoose99Ritz,Morgan00Implicitly,PaigeParlettEtAl95Approximate,SleijpenVorst00JacobiDavidson}.
 
 Vamos apresentar, inicialmente, uma abordagem feita em \cite{SleijpenEshof2003use}, onde se considera que o \textbf{método
@@ -63,7 +69,7 @@ matriz $A\in \mathbb{C}^{m\times m} $ associado ao \textbf{valor de Ritz} $\thet
 Uma representação gráfica de um par de Ritz pode ser vista na Figura \ref{fig_ritzpair}. % Ao examinar esta figura, e as pr\'{o}ximas referentes a autovalores aproximados, devemos ter o cuidado de vê-las  apenas como representaç\~{o}es esquemáticas, uma vez que os valores de Ritz, da mesma forma que os autovalores, podem ser números complexos e, nesse caso, essa representação não é válida.
 
 \begin{figure}[htb]
-	  \epsfig{file=alglin_ritzpair,width=0.8\textwidth}
+	  \epsfig{file=Figures/alglin_ritzpair,width=0.8\textwidth}
   \caption{Representação esquemática de um par de Ritz.}\label{fig_ritzpair}
 \end{figure}
 
@@ -98,7 +104,7 @@ Vamos a uma nova definição, trata-se de uma adaptação do conceito de pares d
 \end{defi}
 Uma representação gráfica para essa definição pode ser vista na Figura \ref{fig_hritzpairorig}.
 \begin{figure}[htb]
-  \epsfig{file=alglin_hritzpairorig.eps, width=\textwidth}
+  \epsfig{file=Figures/alglin_hritzpairorig.eps, width=\textwidth}
   \caption{Representação esquemática de um par harmônico de Ritz usando a representação proposta na Definição \protect{\ref{defi_hritz}}.}\label{fig_hritzpairorig}
 \end{figure}
 No entanto, usaremos uma outra formulação equivalente, proposta em \cite{SleijpenVorst00JacobiDavidson}, para os valores harmônicos de Ritz.
@@ -122,13 +128,13 @@ Basta apenas desenvolver para $y=Ax$, uma vez que  $\mathcal{W}:=A\mathcal{S}$
 
 \'{E} interessante observar que, no caso real, a equivalência entre as duas formulaç\~{o}es de pares harmônicos de Ritz são simples relaç\~{o}es de semelhança de triângulos retângulos, onde as hipotenusas são $x=A^{-1}y$, com $y \in\mathcal{W},\;y\ne0$,  quando usamos a Definição \ref{defi_hritz}, e $\theta x$, quando lançamos mão da caracterização proveniente do Teorema \ref{teo_SleijpenVorst00JacobiDavidson}, ver Figura \ref{fig_hritzpairtriang}.
 \begin{figure}[htb]
-  \epsfig{file=alglin_hritzpair.eps, width=\textwidth}
+  \epsfig{file=Figures/alglin_hritzpair.eps, width=\textwidth}
   \caption{Representação esquemática de um par harmônico de Ritz usando a representação proposta no Teorema \protect{\ref{teo_SleijpenVorst00JacobiDavidson}}.}\label{fig_hritzpair}
 \end{figure}
 
 \begin{figure}[htb]
   \begin{center}
-  \includegraphics[scale=.7]{triangret.png}
+  \includegraphics[scale=.7]{Figures/triangret.png}
   \caption{ Relações em um triângulo retângulo das representações de um par harmônico de Ritz usando a Definição \protect{\ref{defi_hritz}} e o Teorema \protect{\ref{teo_SleijpenVorst00JacobiDavidson}}. Ver Figuras \protect{\ref{fig_hritzpairorig}} e \protect{\ref{fig_hritzpair}}.}\label{fig_hritzpairtriang}
   \end{center}
 
