@@ -19,3 +19,4 @@ Ritz.code-workspace
 *.*_latexmk
 *.fls 
 *.log
+*.pdf
