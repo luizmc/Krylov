@@ -1,6 +1,6 @@
 # Krylov
 
-There two folders:
+There are two folders:
  - Notebooks: 
     A collection of  Jupyter notebooks to study Krylov methods:
 
@@ -9,4 +9,4 @@ There two folders:
     - KrySubMeth_Liesen_Strakos: a study on the book *Krylov Subspace Methods - Principles and Analysis, 2013, Jörg Liesen and Zdeněk Strakoš*;
 
  - Tex:
-      Theoretical notes on Krylov methods and related topics, GMRES, FOM, Ritz values, Ritz harmonic values, and Arnoldi method. 
+      Theoretical notes on Krylov methods and related topics: GMRES, FOM, Ritz values, Ritz harmonic values, and Arnoldi method. 

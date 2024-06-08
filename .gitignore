@@ -20,3 +20,11 @@ Ritz.code-workspace
 *.fls 
 *.log
 *.pdf
+*.bbl
+*.blg
+*.brf
+*.out
+*.run.xml
+*.synctex.gz
+*.synctex
+*.toc
