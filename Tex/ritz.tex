@@ -46,7 +46,7 @@ O pr\'{o}ximo teorema é uma aplicação do teorema de Courant-Fischer e fornece
 \begin{teore}[Teorema de Entrelaçamento \protect{\cite[pág. 42]{Stewart01Matrix}}]\label{teo_interlacing}
 Sejam $A\in\mathbb{C}^{m\times m}$, hermitiana, com autovalores $\lambda_{\max}=\lambda_1\geqslant\lambda_2\geqslant\ldots\geqslant\lambda_m=\lambda_{\min}$ e $U\in\mathbb{C}^{m\times n}$  com colunas ortonormais. Temos $U^HAU$ e seus autovalores $\mu_{\max}=\mu_1\geqslant\mu_2\geqslant\ldots\geqslant\mu_n=\mu_{\min}$. Então
 \[
-\lambda_i\geqslant \mu_i \geqslant \lambda_{m-n+i}, \quad i=1:n.
+\lambda_i\geqslant \mu_i \geqslant \lambda_{i+(m-n)}, \quad i=1:n.
 \]
 Esse resultado recebe o nome de teorema de entrelaçamento porque caso $n=m-1$ então
 \[
@@ -59,7 +59,7 @@ ou seja, os autovalores da matrizes são entrelaçados pelos autovalores aproxim
 
  A seguir vamos caracterizar aproximaç\~{o}es de autovalores e autovetores da matriz $A$, associada a um sistema linear. As caracterizaç\~{o}es seguintes servem para matrizes quaisquer e não apenas para matrizes hermitianas, como os teoremas anteriores.
 \begin{defi}[Par de Ritz]\label{defi_ritz}
-Para qualquer subespaço $\mathcal{S}\subset \mathbb{C}^m$, um vetor $x \in \mathcal{S}$, com $x\ne 0$, é um \textbf{vetor de Ritz} da
+Para qualquer subespaço $\mathcal{S}\subset \mathbb{C}^m$, um vetor $x \in \mathcal{S}$, com $x\ne 0$, é um \textbf{vetor de Ritz} com relação a $\mathcal{S}$ da
 matriz $A\in \mathbb{C}^{m\times m} $ associado ao \textbf{valor de Ritz} $\theta\in \mathbb{C}$,  se
 \begin{equation}\label{eq_ritz}
    w^H(Ax - \theta x) = 0, \forall w \in \mathcal{S} \quad\text{ou}\quad Ax - \theta x\perp \mathcal{S}
@@ -97,10 +97,10 @@ Vale insistir que o Teorema \ref{teo_rayrit} tem como hip\'{o}tese a matriz ser 
 
 \section{Pares de Ritz harmônicos}\label{sec_parritzharm}
 
-Vamos a uma nova definição, trata-se de uma adaptação do conceito de pares de Ritz para favorecer a análise de certos métodos de Krylov. Neste caso, o vetor harmônico de Ritz será a pré-imagem do vetor de Ritz da inversa de $A$ e o valor harmônico de Ritz será inverso do valor de Ritz da inversa de $A$.
+Vamos a uma nova definição, trata-se de uma adaptação do conceito de pares de Ritz para favorecer a análise de certos métodos de Krylov. Assumindo $A$ inversível, o vetor harmônico de Ritz será a pré-imagem do vetor de Ritz da inversa de $A$ e o valor harmônico de Ritz será inverso do valor de Ritz da inversa de $A$.
 
 \begin{defi}[Valor Harmônico de Ritz \protect{\cite{PaigeParlettEtAl95Approximate}}]\label{defi_hritz}
- Seja $\mathcal{S}\subset \mathbb{C}^m$. O escalar $\theta\in\mathbb{C}$ é um \textbf{valor harmônico de Ritz} de $A$ em relação um dado espaço $\mathcal{W}\subset \mathbb{C}^m$, caso $\theta^{-1}$ seja um valor de Ritz de $A^{-1}$  com relação $\mathcal{W}:=A\mathcal{S}$.
+  O escalar $\theta\in\mathbb{C}$ é um \textbf{valor harmônico de Ritz} de $A$ em relação um dado espaço $\mathcal{W}\subset \mathbb{C}^m$, caso $\theta^{-1}$ seja um valor de Ritz de $A^{-1}$  com relação $\mathcal{W}$.
 \end{defi}
 Uma representação gráfica para essa definição pode ser vista na Figura \ref{fig_hritzpairorig}.
 \begin{figure}[htb]
