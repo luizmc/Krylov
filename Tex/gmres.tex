@@ -2,7 +2,7 @@
 \chapter{Arnoldi, FOM e GMRES}
 \label{chap:gmes}
 
-Há uma unanimidade entre os pesquisadores da área de métodos iterativos para solução de sistemas lineares: não existe o melhor método para a solução de problemas com matrizes não-simétricas~\cite{NachtigalReddyEtAl1992How}. Outro ponto de vista comum é o de que, para matrizes não-normais, há muito ainda o  que se trabalhar na compreensão dos fatores que influenciam na convergência dos métodos, em especial quando se reiniciam as iterações devido ao aumento do subespaço de Krylov \cite{Meurant2024}. Ainda outro consenso, é o da necessidade de precondicionadores para acelerar os métodos de projeção em subespaços de Krylov (MPSK). Na Seção \ref{arnol_sec_arnol}, o método de Arnoldi,  um dos procedimentos seminais dos MPSK ao lado do método de Lanczos, é discutido a partir de uma motivação para a sua construção e várias de suas propriedades são relacionadas. Nas demais seções, discutimos dois métodos paradigmáticos: o FOM e o GMRES. A literatura sobre esses métodos é vasta, estando consolidada, por exemplo, nos livros \cite{Brezinski2002Outils}, \cite{Greenbaum97Iterative}, \cite{Meurant2020Krylov} \cite{Saad03Iterative},  \cite{Vorst03Iterative}.  Ao fim deste trabalho, tocamos levemente na questão de estabilidade do GMRES quando do uso  do procedimento de Arnoldi baseado no método de reflexões de Householder ou no método de ortogonalização de Gram-Schmidt modificado,  apresentando a bibliografia necessária ao estudo deste tema. 
+Há uma unanimidade entre os pesquisadores da área de métodos iterativos para solução de sistemas lineares: não existe o melhor método para a solução de problemas com matrizes não-simétricas~\cite{NachtigalReddyEtAl1992How}. Outro ponto de vista comum é o de que, para matrizes não-normais, há muito ainda o  que se trabalhar na compreensão dos fatores que influenciam na convergência dos métodos, em especial quando se reiniciam as iterações devido ao aumento do subespaço de Krylov \cite{Meurant2024}. Ainda outro consenso, é o da necessidade de precondicionadores para acelerar os métodos de projeção em subespaços de Krylov (MPSK). Na Seção \ref{arnol_sec_arnol}, o método de Arnoldi,  um dos procedimentos seminais dos MPSK, ao lado do método de Lanczos, é discutido a partir de uma motivação para a sua construção e várias de suas propriedades são relacionadas. Nas demais seções, discutimos dois métodos paradigmáticos: o FOM e o GMRES. A literatura sobre esses métodos é vasta, estando consolidada, por exemplo, nos livros \cite{Brezinski2002Outils}, \cite{Greenbaum97Iterative}, \cite{Meurant2020Krylov} \cite{Saad03Iterative},  \cite{Vorst03Iterative}.  Ao fim deste trabalho, tocamos levemente na questão de estabilidade do GMRES quando do uso  do procedimento de Arnoldi baseado no método de reflexões de Householder ou no método de ortogonalização de Gram-Schmidt modificado,  apresentando a bibliografia necessária ao estudo deste tema. 
 
 \section{Método de Arnoldi}\label{arnol_sec_arnol}
 O nome de Arnoldi\footnote{Walter Edwin Arnoldi (1917-1995) foi um engenheiro americano que publicou sua técnica em 1951, não muito distante do aparecimento do algoritmo de Lanczos. Arnoldi graduou-se em engenharia mecânica no Stevens Institute of Technology, Hoboken, New
@@ -25,10 +25,10 @@ onde $e_k$ é o $k$-ésimo vetor da base canônica. Como buscamos uma base orton
 \[AQR=QRH_1+A^kr_0e_k^H.\]
 Mais algumas contas:
 
-\begin{multline*}
+\begin{multline}
 AQ=(QRH_1+A^kr_0e_k^H)R^{-1}\Rightarrow Q^HAQ=(RH_1+Q^HA^kr_0e_k^H)R^{-1}\Rightarrow\\
-\Rightarrow Q^HAQ=R(H_1+R^{-1}Q^HA^kr_0e_k^H)R^{-1},
-\end{multline*}
+\Rightarrow Q^HAQ=R(H_1+R^{-1}Q^HA^kr_0e_k^H)R^{-1}\label{eq:vuik2},
+\end{multline}
 ora
 \[H_2:=H_1+R^{-1}Q^HA^kr_0e_k^H=\begin{pmatrix}
     0 & 0 & \ldots & 0 & \vdots \\
@@ -37,12 +37,18 @@ ora
      \vdots & \vdots & \ddots & 0 & \vdots\\
      0 & \ldots & \ldots & 1 & \vdots \\
      \end{pmatrix},\]
-     é uma matriz de Hessenberg e $RH_2R^{-1}$ também o será. E assim, vemos que a decomposição $Q^HAQ$ é uma matriz de Hessenberg superior. E, podemos tomar para $V$ as colunas de $Q$.
+     é uma matriz de Hessenberg e $RH_2R^{-1}$ também o será, já que  $R$ e $R^{-1}$ são triangulares superiores. E assim, vemos que a decomposição $Q^HAQ$ é uma matriz de Hessenberg superior. E, podemos tomar para $V$ as colunas de $Q$.
 
 %\ifthenelse{\boolean{versaocnmac}}{}
 {
-     Avancemos  com o raciocínio de Vuik. Vamos desenvolver a  última  coluna de $RH_2R^{-1}$.
-     Ela será  igual a $Q^HA^kr_0R^{-1}(k,k)$, para isso bastando interpretar a multiplicação de matrizes como um produto externo.  $R^{-1}(k,k)$ é igual a $1/\norma{\widetilde{Q}(:,k)}_2$, onde $\widetilde{Q}(:,k)$ é o vetor ${Q}(:,k)$ antes da normalização, ou seja, ${Q}(:,k)=\widetilde{Q}(:,k)/\norma{\widetilde{Q}(:,k)}_2$. E assim, comparando as  última s colunas das matrizes $Q^HAQ$ e $RH_2R^{-1}$, temos
+     Vamos desenvolver a  última  coluna de $RH_2R^{-1}$:
+   
+     \begin{multline*}
+          RH_2R^{-1}=R(H_1+R^{-1}Q^HA^kr_0e_k^H)R^{-1}=RH_1R^{-1}+Q^HA^kr_0e_k^HR^{-1}=\\
+          =RH_1R^{-1}+Q^HA^kr_0R^{-1}(k,k).
+          \end{multline*}
+
+     A última coluna do resultado é  igual a $Q^HA^kr_0R^{-1}(k,k)$. Lembrando o processo de ortogonalização de Gram-Schmidt, $R^{-1}(k,k)$ é igual a $1/\norma{\widetilde{Q}(:,k)}_2$, onde $\widetilde{Q}(:,k)$ é um vetor ortogonal aos anteriores  e ao ser normalizado resulta em ${Q}(:,k)$, ou seja, ${Q}(:,k)=\widetilde{Q}(:,k)/\norma{\widetilde{Q}(:,k)}_2$. E assim, comparando as  últimas colunas das matrizes $Q^HAQ$ e $RH_2R^{-1}$, ver \eqref{eq:vuik2}, temos
      \[
      Q^HA{Q}(:,k)=Q^HA^kr_0/\norma{\widetilde{Q}(:,k)}_2,
      \]
