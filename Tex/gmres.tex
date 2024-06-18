@@ -54,7 +54,7 @@ ora
      \]
      ou ainda
      \[QQ^HA\widetilde{Q}(:,k)=QQ^HA^kr_0.\]
-     Ou seja, as projeções ortogonais de $A\widetilde{Q}(:,k)$ e de $A^kr_0$ no subespaço de Krylov $\mathcal{K}_k(A,r_0)$ são  as mesmas. não temos ainda a resposta final, mas uma boa pista, de como gerar os subespaço de Krylov sem utilizar $A^kr_0$. Será que no processo de ortogonalização, ao substituirmos  o vetor $A^kr_0$ pelo vetor $A\widetilde{Q}(:,k)$, estaremos gerando bases para o mesmo subespaço de Krylov $\mathcal{K}_k(A,r_0)$? Quais as condições sobre os vetores $A^kr_0$ e $A\widetilde{Q}(:,k)$ para que os subespaços gerados sejam os mesmos? A resposta positiva é o método de Arnoldi que está descrito nos Algoritmos \ref{algor_arnoldigs} e \ref{algor_arnoldigsm}.
+     Ou seja, as projeções ortogonais de $A\widetilde{Q}(:,k)$ e de $A^kr_0$ no subespaço de Krylov $\mathcal{K}_k(A,r_0)$ são  as mesmas. Não temos ainda a resposta final, mas uma boa pista, de como gerar os subespaço de Krylov sem utilizar $A^kr_0$. Será que no processo de ortogonalização, ao substituirmos  o vetor $A^kr_0$ pelo vetor $A\widetilde{Q}(:,k)$, estaremos gerando bases para o mesmo subespaço de Krylov $\mathcal{K}_k(A,r_0)$? Quais as condições sobre os vetores $A^kr_0$ e $A\widetilde{Q}(:,k)$ para que os subespaços gerados sejam os mesmos? A resposta positiva é o método de Arnoldi que está descrito nos Algoritmos \ref{algor_arnoldigs} e \ref{algor_arnoldigsm}.
 }
      \begin{algor}[htb]
 \caption{ Método  de Arnoldi $(A,\;r_0,\;k)$ - alternativa com Gram-Schmidt clássico.} \label{algor_arnoldigs}
