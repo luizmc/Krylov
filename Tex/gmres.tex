@@ -9,7 +9,7 @@ O nome de Arnoldi\footnote{Walter Edwin Arnoldi (1917-1995) foi um engenheiro am
 Jersey, em 1937 e o seu mestrado foi obtido na Harvard University em 1939. Durante sua carreira, trabalhou como engenheiro na Hamilton Standard Division da United Aircraft Corporation, aonde, com o passar do tempo, tornou-se pesquisador chefe da divisão. Aposentou-se em 1977. Apesar de sua pesquisa ter versado sobre propriedades mecânicas e aerodinâmicas de aeronaves e estruturas aeroespaciais, o nome de Arnoldi é mantido vivo graças ao seu procedimento de ortogonalização (traduzido de \cite{Meyer00Matrix}).} aparece tanto ligado à solução de problemas de autovalores quanto à solução de sistemas lineares.  Apresentaremos o método de Arnoldi \cite{Arnoldi51principle} para ortogonalizar uma base de um subespaço Krylov.
  Visando facilitar o desenvolvimento, vamos supor que o grau do polinômio mínimo  de $r_0$ em relação a $A$ é maior do que $k$.
 
-Uma motivação interessante para o método de Arnoldi é apresentada em \cite[pág. 337]{Meurant1999Computer} e foi formulada originalmente por Kees Vuik. Queremos construir uma base ortonormal para $\mathcal{K}_k(A,r_0)$ $=\gera{r_0,Ar_0,\ldots,A^{k-1}r_0}$, tal que $\mathcal{K}_k(A,r_0)$ $=\gera{v_1,v_2,\ldots,v_{k-1},v_k}$. Seja $V=\begin{pmatrix}v_1&v_2&\ldots &v_k\end{pmatrix}$, logo $V^HV=I$. Vale, também, observar que a matriz de Krylov  associada a $\mathcal{K}_k(A,r_0)$, ${K}_k=\begin{pmatrix} r_0&Ar_0&\ldots&A^{k-1}r_0\end{pmatrix}$, goza da seguinte propriedade:
+Uma motivação interessante para o método de Arnoldi é apresentada em \cite[pág. 337]{Meurant1999Computer} e foi formulada originalmente por Kees Vuik. Queremos construir uma base ortonormal $V=\{v_1,v_2,\ldots,v_{k-1},v_k\}$ para $\mathcal{K}_k(A,r_0)$ $=\gera{r_0,Ar_0,\ldots,A^{k-1}r_0}$, tal que $\forall j;\; 1\leqslant j\leqslant  k$, $\mathcal{K}_j(A,r_0)$ $=\gera{v_1,v_2,\ldots,v_{j-1},v_j}$. Seja $V=\begin{pmatrix}v_1&v_2&\ldots &v_k\end{pmatrix}$, logo $V^HV=I$. Vale, também, observar que a matriz de Krylov  associada a $\mathcal{K}_k(A,r_0)$, ${K}_k=\begin{pmatrix} r_0&Ar_0&\ldots&A^{k-1}r_0\end{pmatrix}$, goza da seguinte propriedade:
 \begin{gather}
 A{K}_k=\begin{pmatrix} Ar_0&A^2r_0&\ldots&A^kr_0\end{pmatrix}=\notag\\
 =\begin{pmatrix} Ar_0&A^2r_0&\ldots&A^{k-1}r_0&0\end{pmatrix} +\begin{pmatrix} 0&0&\ldots&A^kr_0\end{pmatrix}=\notag\\
@@ -45,7 +45,7 @@ ora
    
      \begin{multline*}
           RH_2R^{-1}=R(H_1+R^{-1}Q^HA^kr_0e_k^H)R^{-1}=RH_1R^{-1}+Q^HA^kr_0e_k^HR^{-1}=\\
-          =RH_1R^{-1}+Q^HA^kr_0R^{-1}(k,k).
+          =RH_1R^{-1}+Q^HA^kr_0R^{-1}(k,k)e_k^H.
           \end{multline*}
 
      A última coluna do resultado é  igual a $Q^HA^kr_0R^{-1}(k,k)$. Lembrando o processo de ortogonalização de Gram-Schmidt, $R^{-1}(k,k)$ é igual a $1/\norma{\widetilde{Q}(:,k)}_2$, onde $\widetilde{Q}(:,k)$ é um vetor ortogonal aos anteriores  e ao ser normalizado resulta em ${Q}(:,k)$, ou seja, ${Q}(:,k)=\widetilde{Q}(:,k)/\norma{\widetilde{Q}(:,k)}_2$. E assim, comparando as  últimas colunas das matrizes $Q^HAQ$ e $RH_2R^{-1}$, ver \eqref{eq:vuik2}, temos
